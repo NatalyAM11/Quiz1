@@ -1,0 +1,41 @@
+package main;
+
+import processing.core.PApplet; 
+
+public class FiguraTres extends Figura{
+	
+	protected PApplet app;
+	
+	public FiguraTres (int posx, int posy, PApplet app) {
+		
+		super(posx,posy);
+		this.app= app; 
+		
+	}
+	
+public void pintar() {
+	
+	app.triangle (getPosx(),getPosy(),getPosx()+25,getPosy()-50,getPosx()+50,getPosy());
+	
+}
+
+
+public void mover() {
+	
+	posx+=velX;
+	if(posx>475 || posx< 0) {
+		velX*=-1;
+	}
+	
+	posy+=velY;
+	if(posy>475 || posy< 25) {
+		velY*=-1;
+	}
+}
+
+	
+	
+	
+	
+
+}

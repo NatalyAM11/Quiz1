@@ -1,0 +1,24 @@
+package view;
+
+import processing.core.PApplet;
+
+public class FiguraUno extends Figura {
+	
+	public FiguraUno (int posX, int posY, int tam,String tipo, int vel, PApplet app) {
+		super(posX,posY,tam,tipo,vel,app);
+	}
+	
+	public void pintar(PApplet app) {
+		app.fill(255,0,0);
+		app.ellipse(posX,posY,tam,tam);
+	}
+	
+	public void mover () {
+		posX+=vel;
+		
+		if(posX>=500) {
+			vel=vel*-1;
+		}
+	}
+
+}

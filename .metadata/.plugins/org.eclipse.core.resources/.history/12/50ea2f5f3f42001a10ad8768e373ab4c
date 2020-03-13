@@ -1,0 +1,197 @@
+package main;
+
+import processing.core.PApplet;
+import java.util.ArrayList;
+
+public class Main extends PApplet {
+	
+	ArrayList <Figura> fig;
+	
+	//Figuras 
+	private FiguraUno circulo;
+	private FiguraDos cuadrado;
+	private FiguraTres triangulo;
+	int cli = (int) random (0,2);
+	int color;
+    Figura mundo;
+    
+    //variables para el anuncio de que debe escoger un color primero
+    boolean eleccion;
+    boolean anuncio;
+    
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		PApplet.main("main.Main");
+	}
+
+	public void settings() {
+		size (500,500);
+		
+	}
+	
+	public void setup() {
+		
+		//inicializacion del arraylist
+		fig= new ArrayList<Figura>();
+
+		color=0;
+		eleccion=false;
+		anuncio= false;
+		
+	}
+	
+	
+	
+	public void draw() {
+		
+		background(100);
+		
+		//Botones opciones
+		
+		
+		// opciones botones
+		
+		//Rojo
+		fill(200,40,86);
+		rect(0,100,50,50);
+		//Verde
+		fill(71,156,46);
+		rect(0,150,50,50);
+		//Azul
+		fill(0,0,255);
+		rect(0,200,50,50);
+		//Morado
+		fill(154,40,200);
+		rect(0,250,50,50);
+		//Blanco
+		fill(255);
+		rect(0,300,50,50);
+		//Negro
+		fill(0);
+		rect(0,350,50,50);
+		
+	
+		
+		
+		for (int i = 0; i < fig.size(); i++) {
+			fig.get(i).pintar();
+			fig.get(i).mover();
+
+		}
+		
+		
+		//switch para todos los fill 
+		
+switch(color) {
+		
+		case 1: fill(200,40,86);
+		break;
+		
+		case 2:fill(71,156,46);
+		break;
+		
+		case 3:fill(0,0,255);
+		break;
+		
+		case 4:fill(154,40,200);
+		break;
+		
+		case 5:fill(255);
+		break;
+		
+		case 6:fill(0);
+		break;
+		
+		}
+		
+		if(anuncio==true) {
+			fill(0);
+			text("Escoge un color primero!!",250,250);
+		}
+	}
+	
+	
+	public void mousePressed () {
+		
+		
+		if(eleccion==true) {
+		 int cli = (int) random (0,3);
+		
+		switch (cli) {
+		
+		case 0:mundo= new FiguraUno (mouseX,mouseY,this);
+			  
+		
+		break;
+		
+		case 1:mundo=new FiguraDos(mouseX, mouseY, this);
+			  
+		
+		break;
+		
+		case 2:mundo= new FiguraTres(mouseX,mouseY,this);
+		break;
+		
+		
+		}
+		
+		fig.add(mundo);
+
+		}
+		
+		
+		if(eleccion==false) {
+			anuncio=true;
+			}
+		
+		
+		if((mouseX>0 && mouseX<50) && (mouseY>100 && mouseY<150)) {
+			color=1;
+			eleccion=true;
+			anuncio=false;
+		}
+		if((mouseX>0 && mouseX<50) && (mouseY>150 && mouseY<200)) {
+			color=2;
+			eleccion=true;
+			anuncio=false;
+		}
+		
+		if((mouseX>0 && mouseX<50) && (mouseY>200 && mouseY<250)) {
+			color=3;
+			eleccion=true;
+			anuncio=false;
+		}
+		
+		if((mouseX>0 && mouseX<50) && (mouseY>250 && mouseY<300)) {
+			color=4;
+			eleccion=true;
+			anuncio=false;
+		}
+		if((mouseX>0 && mouseX<50) && (mouseY>300 && mouseY<350)) {
+			color=5;
+			eleccion=true;
+			anuncio=false;
+		}
+		if((mouseX>0 && mouseX<50) && (mouseY>350 && mouseY<400)) {
+			color=6;
+			eleccion=true;
+			anuncio=false;
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}
+	
+	
+	
+	
+
+

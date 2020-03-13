@@ -1,0 +1,38 @@
+package view;
+
+
+import processing.core.PApplet;
+
+public class main extends PApplet {
+	
+	Figura figuras;
+	String[] textOne;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PApplet.main("view.main");
+	}
+	public void settings() {
+		size(500,500);
+	}
+	
+	
+	public void setup() {
+		textOne= loadStrings("../txt/textOne.txt");
+	for (int i=0; i<6; i++) {
+		figuras(i).pintar;
+	}
+		figuras= new Figuras 
+	}
+	
+	
+	public void draw() {
+		background(0);
+		
+		
+		
+	
+	}
+	
+
+}
